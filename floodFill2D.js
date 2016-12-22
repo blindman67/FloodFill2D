@@ -1,5 +1,7 @@
 // Usage
-// Can be used as long as a link to this github page is included in the source
+// Can be used as long as a link to this https://github.com/blindman67/FloodFill2D github page is included in the source and the following attribution is included.
+
+// FloodFill2D by Blindman67 2016. Original source code from https://github.com/blindman67/FloodFill2D
 
 const floodFill = (function(){
     const extent = {
