@@ -4,6 +4,7 @@
 // FloodFill2D by Blindman67 2016. Original source code from https://github.com/blindman67/FloodFill2D
 
 const floodFill = (function(){
+    "use strict";
     const extent = {
         top : 0,
         left : 0,
