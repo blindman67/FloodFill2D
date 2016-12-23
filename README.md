@@ -29,13 +29,14 @@ Just include the floodFill2D.js file on your page
 
 ```
    // ctx is the canvas context2D
-   
+   //-----------------------------------------------------------------------------------------
    // Fill flat colour
    ctx.fillStyle = "red"; // colour to fill
    floodFill.fill(200, 200, 10, ctx); // fill pixels from position 200,200 with the colour red
                                  // with a tolerance of 10
                                  
                                  
+   //-----------------------------------------------------------------------------------------
    // Fill with gradient
    var grad = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
    grad.addColorStop(0,"red");
@@ -44,32 +45,58 @@ Just include the floodFill2D.js file on your page
    floodFill.fill(200, 200, 10, ctx); // fill pixels from position 200,200 with the current gradient
                                  // with a tolerance of 10
 
-   // Fill with alpha
+
+   //-----------------------------------------------------------------------------------------
+   // Fill with alpha = 0.5
    ctx.fillStyle = "red"; // colour to fill
    ctx.globalAlpha = 0.5; // fill with half transparency
-   floodFill.fill(200, 200, 10, ctx); // fill pixels from position 200,200 with the colour red
-                                 // with a tolerance of 10
+   floodFill.fill(200, 200, 10, ctx);   // fill pixels from position 200,200 with the colour red
+                                        // with a tolerance of 10
                                  
+                                 
+   //-----------------------------------------------------------------------------------------
    // Remove pixels
    ctx.fillStyle = "black"; // any colour will do   
    ctx.globalAlpha = 1;   // ensure global alpha is 1
    ctx.globalCompositeOperation = "destination-out";
    floodFill.fill(200, 200, 10, ctx); // removes all filled pixels with a tolerance of 10
    
+   
+   //-----------------------------------------------------------------------------------------   
    // Fill all pixels with green that are within  range of alpha 255 - tolerance. All other colours are ignored.
    floodFill.setCompareValues(null,null,null,255); // ignore red, green, blue
    ctx.fillStyle = "green";
-   var image = floodFill.fill(200,200,200,ctx);   
+   floodFill.fill(200,200,200,ctx);   
 
 
+   //-----------------------------------------------------------------------------------------   
+   // Fill all colours except transparent black
    floodFill.setBoundingColor(0,0,0,0); // Fill up to all colours except transparent black
    ctx.fillStyle = "green";
-   var image = floodFill.fill(200,200,200,ctx);   
+   floodFill.fill(200,200,200,ctx);   
    // Note when alpha is set to 0 the other pixel colours are also set to 0
 
+   
+   //-----------------------------------------------------------------------------------------   
+   // Fill all but red
    floodFill.setBoundingColor(255,0,0,255); // Fill all but Red
    ctx.fillStyle = "green";
-   var image = floodFill.fill(200,200,200,ctx);   
+   floodFill.fill(200,200,200,ctx);  
+
+   
+   //-----------------------------------------------------------------------------------------   
+   // Cut connected pixels from canvas
+   var image = floodFill.fill(200,200,200,ctx);  
+   // Draw cut image
+   ctx.drawImage(image,0,0);
+
+   
+   //-----------------------------------------------------------------------------------------   
+   // Copy connected pixels from canvas
+   var image = floodFill.fill(200,200,200,ctx);  
+   // Draw copied image
+   ctx.drawImage(image,0,0);
+
    
 ```
 
