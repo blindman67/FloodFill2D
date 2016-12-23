@@ -22,7 +22,7 @@ There are no dependencies, written in ES5
 Just include the floodFill2D.js file on your page
 
 ```
-   <script src = "flodFill2D.js"></script>
+   <script src = "floodFill2D.js"></script>
 ```
 
 ###To use in your application.
